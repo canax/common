@@ -1,4 +1,4 @@
-Anax Utility
+Anax Common
 ==================================
 
 [![Latest Stable Version](https://poser.pugx.org/anax/common/v/stable)](https://packagist.org/packages/anax/common)
