@@ -9,7 +9,7 @@
  * Define essential Anax paths, end with /
  */
 define("ANAX_INSTALL_PATH", realpath(__DIR__ . "/.."));
-//define("ANAX_APP_PATH", ANAX_INSTALL_PATH . "/app");
+define("ANAX_APP_PATH", ANAX_INSTALL_PATH);
 
 
 
@@ -17,3 +17,9 @@ define("ANAX_INSTALL_PATH", realpath(__DIR__ . "/.."));
  * Include autoloader.
  */
 require ANAX_INSTALL_PATH . "/vendor/autoload.php";
+
+
+/**
+ * Include others.
+ */
+ require "Common/DummyConfig.php";
