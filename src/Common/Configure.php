@@ -42,7 +42,7 @@ trait Configure
         } elseif (is_readable($anaxInstallPath)) {
             $options = require $anaxInstallPath;
         } else {
-            throw new Exception("Configure item '$what' is not an array nor a readable file.");
+            throw new ConfigurationException("Configure item '$what' is not an array nor a readable file.");
         }
 
         $this->config = array_merge($this->config, $options);
