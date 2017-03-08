@@ -17,7 +17,7 @@ class ConfigureTest extends \PHPUnit_Framework_TestCase
      */
     public function testMissingConfigFile()
     {
-        $config = new DummyConfig();
+        $config = new MockConfig();
         $config->configure("MISSING-FILE");
     }
 }
