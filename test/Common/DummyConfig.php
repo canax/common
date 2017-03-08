@@ -8,5 +8,5 @@ namespace Anax\Common;
  */
 class DummyConfig
 {
-    use \Anax\Common\Configure;
+    use \Anax\Common\ConfigureTrait;
 }
