@@ -22,4 +22,5 @@ require ANAX_INSTALL_PATH . "/vendor/autoload.php";
 /**
  * Include others.
  */
- require "Common/DummyConfig.php";
+ require "Common/MockAppInjectable.php";
+ require "Common/MockConfig.php";

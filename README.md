@@ -10,7 +10,7 @@ Anax Common
 [![Code Coverage](https://scrutinizer-ci.com/g/canax/common/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/canax/common/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/986e44ce-6f86-4907-bfa9-1304bf393473/mini.png)](https://insight.sensiolabs.com/projects/986e44ce-6f86-4907-bfa9-1304bf393473)
 
-Common functions and classes for Anax. Commonly used by other modules.
+Common functions and classes for Anax. Commonly used by several Anax modules.
 
 
 

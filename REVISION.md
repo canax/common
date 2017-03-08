@@ -1,6 +1,13 @@
 Revision history
 =================================
 
+v1.0.4 (2017-03-08)
+---------------------------------
+
+* Added `AppInjectableInterface` and `AppInjectableTrait`.
+* Added `ConfigInterface`.
+
+
 v1.0.3 (2017-03-08)
 ---------------------------------
 
