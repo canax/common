@@ -19,7 +19,10 @@
     "autoload": {
         "psr-4": { 
             "Anax\\": "src/"
-        }
+        },
+        "files": [
+            "src/functions.php"
+        ]
     },
     "require": {
         "php": ">=5.6"
