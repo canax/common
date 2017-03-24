@@ -9,12 +9,8 @@ namespace Anax\Common;
  */
 trait ConfigureTrait
 {
-
-    /**
-     * Properties
-     *
-     */
-    private $config = [];  // Store all config as an array
+    /** @var [] $config store the configuration in this array.   */
+    private $config = [];
 
 
 
