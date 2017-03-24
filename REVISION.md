@@ -1,10 +1,11 @@
 Revision history
 =================================
 
-v1.0.6* (2017-03-24)
+v1.0.7 (2017-03-24)
 ---------------------------------
 
 * Minor edit of docblock comment.
+* Configure to return self.
 
 
 v1.0.6 (2017-03-10)

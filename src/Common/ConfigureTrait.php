@@ -5,7 +5,6 @@ namespace Anax\Common;
 /**
  * Trait implementing reading from config-file and storing options in
  * $this->config.
- *
  */
 trait ConfigureTrait
 {
