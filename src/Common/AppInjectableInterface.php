@@ -4,8 +4,7 @@ namespace Anax\Common;
 
 /**
  * Interface for classes needing injection of the $app object
- * containingframework resources.
- *
+ * containing framework resources.
  */
 interface AppInjectableInterface
 {

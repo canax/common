@@ -3,9 +3,7 @@
 namespace Anax\Common;
 
 /**
- * Interface for classes needing injection of the $app object
- * containingframework resources.
- *
+ * Interface for classes needing access to configuration files.
  */
 interface ConfigureInterface
 {
