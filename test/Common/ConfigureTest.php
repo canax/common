@@ -10,8 +10,17 @@ class ConfigureTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Test
-     *
-     * @return void
+     */
+    public function testConfigReturnesSelf()
+    {
+        //$config = new MockConfig();
+        //$self = $config->configure([]);
+        //$this->assertEquals($config, $self);
+    }
+
+
+    /**
+     * Test
      *
      * @expectedException Anax\Common\ConfigurationException
      */
