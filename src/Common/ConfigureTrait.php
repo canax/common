@@ -41,6 +41,6 @@ trait ConfigureTrait
         }
 
         $this->config = array_merge($this->config, $options);
-        return self;
+        return $this;
     }
 }
