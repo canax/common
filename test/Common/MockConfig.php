@@ -8,4 +8,12 @@ namespace Anax\Common;
 class MockConfig implements ConfigureInterface
 {
     use ConfigureTrait;
+
+    /**
+     * Provide access to private variable.
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
 }

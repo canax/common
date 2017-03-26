@@ -27,20 +27,27 @@ trait ConfigureTrait
      */
     public function configure($what)
     {
-        $anaxInstallPath = ANAX_INSTALL_PATH . "/config/$what";
-        $anaxAppPath = ANAX_APP_PATH . "/config/$what";
-        
         if (is_array($what)) {
-            $options = $what;
-        } elseif (is_readable($anaxAppPath)) {
-            $options = require $anaxAppPath;
-        } elseif (is_readable($anaxInstallPath)) {
-            $options = require $anaxInstallPath;
-        } else {
-            throw new ConfigurationException("Configure item '$what' is not an array nor a readable file.");
+            $this->config = $what;
+            return $this;
         }
 
-        $this->config = array_merge($this->config, $options);
-        return $this;
+        if (defined("ANAX_APP_PATH")) {
+            $path = ANAX_APP_PATH . "/config/$what";
+            if (is_readable($path)) {
+                $this->config = require $path;
+                return $this;
+            }
+        }
+
+        if (defined("ANAX_INSTALL_PATH")) {
+            $path = ANAX_INSTALL_PATH . "/config/$what";
+            if (is_readable($path)) {
+                $this->config = require $path;
+                return $this;
+            }
+        }
+
+        throw new ConfigurationException("Configure item '$what' is not an array nor a readable file.");
     }
 }
