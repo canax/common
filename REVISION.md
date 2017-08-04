@@ -1,6 +1,13 @@
 Revision history
 =================================
 
+v1.0.11 (2017-08-04)
+---------------------------------
+
+* Adding directory extra/ for resuable items.
+* Adding Makefile.anax to extra/.
+
+
 v1.0.10 (2017-03-26)
 ---------------------------------
 
