@@ -1,6 +1,12 @@
 Revision history
 =================================
 
+v1.0.12 (2017-08-10)
+---------------------------------
+
+* Enhance message for uncaught exceptions in error_reporting.php.
+
+
 v1.0.11 (2017-08-04)
 ---------------------------------
 
