@@ -117,7 +117,7 @@ doc: phpdoc
 
 # target: build              - Do all build
 .PHONY:  build
-build: test doc #less-compile less-minify js-minify
+build: test doc #theme less-compile less-minify js-minify
 	@$(call HELPTEXT,$@)
 
 
@@ -178,13 +178,13 @@ install-tools-php:
 check-tools-php:
 	@$(call HELPTEXT,$@)
 	php --version && echo
-	$(PHPUNIT) --version
-	$(PHPLOC) --version
-	$(PHPCS) --version && echo
-	$(PHPMD) --version && echo
-	$(PHPCBF) --version && echo
-	$(PHPDOC) --version && echo
-	$(BEHAT) --version && echo
+	which $(PHPUNIT) && $(PHPUNIT) --version
+	which $(PHPLOC) && $(PHPLOC) --version
+	which $(PHPCS) && $(PHPCS) --version && echo
+	which $(PHPMD) && $(PHPMD) --version && echo
+	which $(PHPCBF) && $(PHPCBF) --version && echo
+	which $(PHPDOC) && $(PHPDOC) --version && echo
+	which $(BEHAT) && $(BEHAT) --version && echo
 
 
 
@@ -273,8 +273,8 @@ install-tools-bash:
 .PHONY: check-tools-bash
 check-tools-bash:
 	@$(call HELPTEXT,$@)
-	$(SHELLCHECK) --version
-	$(BATS) --version
+	which $(SHELLCHECK) && $(SHELLCHECK) --version
+	which $(BATS) && $(BATS) --version
 
 
 
