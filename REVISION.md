@@ -1,11 +1,22 @@
 Revision history
 =================================
 
-v1.0.12* (2017-08-04)
+v1.0.14* (2017-08-11)
 ---------------------------------
 
-* Update extra/Makefile.anax.
 * Add extra/Makefile for modules, could replace Makefile.anax.
+
+
+v1.0.13 (2017-08-10)
+---------------------------------
+
+* Adding sample App-klass.
+
+
+v1.0.12 (2017-08-10)
+---------------------------------
+
+* Enhance message for uncaught exceptions in error_reporting.php.
 
 
 v1.0.11 (2017-08-04)
