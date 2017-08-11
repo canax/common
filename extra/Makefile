@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------
 #
-# Generel stuff
+# General stuff
 #
 
 # Detect OS
@@ -102,7 +102,7 @@ check: check-tools-bash check-tools-php
 
 # target: test               - Run all tests.
 .PHONY:  test
-test: bats phpunit phpcs phpmd phploc behat # shellcheck
+test: phpunit phpcs phpmd phploc behat shellcheck bats
 	@$(call HELPTEXT,$@)
 	composer validate
 
@@ -117,14 +117,14 @@ doc: phpdoc
 
 # target: build              - Do all build
 .PHONY:  build
-build: test doc #theme less-compile less-minify js-minify
+build: test doc #less-compile less-minify js-minify
 	@$(call HELPTEXT,$@)
 
 
 
 # target: install            - Install all tools
 .PHONY:  install
-install: prepare install-tools-bash install-tools-php
+install: prepare install-tools-php install-tools-bash
 	@$(call HELPTEXT,$@)
 
 
@@ -154,7 +154,8 @@ tag-prepare:
 .PHONY: install-tools-php
 install-tools-php:
 	@$(call HELPTEXT,$@)
-	curl -Lso $(PHPDOC) https://www.phpdoc.org/phpDocumentor.phar && chmod 755 $(PHPDOC)
+	#curl -Lso $(PHPDOC) https://www.phpdoc.org/phpDocumentor.phar && chmod 755 $(PHPDOC)
+	curl -Lso $(PHPDOC) https://github.com/phpDocumentor/phpDocumentor2/releases/download/v2.9.0/phpDocumentor.phar && chmod 755 $(PHPDOC)
 
 	curl -Lso $(PHPCS) https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar && chmod 755 $(PHPCS)
 
@@ -162,14 +163,13 @@ install-tools-php:
 
 	curl -Lso $(PHPMD) http://static.phpmd.org/php/latest/phpmd.phar && chmod 755 $(PHPMD)
 
-	curl -Lso $(PHPUNIT) https://phar.phpunit.de/phpunit-5.7.9.phar && chmod 755 $(PHPUNIT)
-
 	curl -Lso $(PHPLOC) https://phar.phpunit.de/phploc.phar && chmod 755 $(PHPLOC)
 
 	curl -Lso $(BEHAT) https://github.com/Behat/Behat/releases/download/v3.3.0/behat.phar && chmod 755 $(BEHAT)
 
-	composer install
+	curl -Lso $(PHPUNIT) https://phar.phpunit.de/phpunit-5.7.9.phar && chmod 755 $(PHPUNIT)
 
+	[ ! -f composer.json ] || composer install
 
 
 
@@ -177,13 +177,14 @@ install-tools-php:
 .PHONY: check-tools-php
 check-tools-php:
 	@$(call HELPTEXT,$@)
-	which $(PHPUNIT) && $(PHPUNIT) --version
-	which $(PHPLOC) && $(PHPLOC) --version
-	which $(PHPCS) && $(PHPCS) --version && echo
-	which $(PHPMD) && $(PHPMD) --version && echo
-	which $(PHPCBF) && $(PHPCBF) --version && echo
-	which $(PHPDOC) && $(PHPDOC) --version && echo
-	which $(BEHAT) && $(BEHAT) --version && echo
+	php --version && echo
+	$(PHPUNIT) --version
+	$(PHPLOC) --version
+	$(PHPCS) --version && echo
+	$(PHPMD) --version && echo
+	$(PHPCBF) --version && echo
+	$(PHPDOC) --version && echo
+	$(BEHAT) --version && echo
 
 
 
@@ -191,7 +192,7 @@ check-tools-php:
 .PHONY: phpunit
 phpunit: prepare
 	@$(call HELPTEXT,$@)
-	[ ! -f .phpunit.xml ] || $(PHPUNIT) --configuration .phpunit.xml
+	[ ! -d "test" ] || $(PHPUNIT) --configuration .phpunit.xml
 
 
 
@@ -207,7 +208,11 @@ phpcs: prepare
 .PHONY: phpcbf
 phpcbf:
 	@$(call HELPTEXT,$@)
+ifneq ($(wildcard test),)
 	[ ! -f .phpcs.xml ] || $(PHPCBF) --standard=.phpcs.xml
+else
+	[ ! -f .phpcs.xml ] || $(PHPCBF) --standard=.phpcs.xml src
+endif
 
 
 
@@ -231,7 +236,7 @@ phploc: prepare
 .PHONY: phpdoc
 phpdoc:
 	@$(call HELPTEXT,$@)
-	[ ! -f .phpdoc.xml ] || $(PHPDOC) --config=.phpdoc.xml
+	[ ! -d doc ] || $(PHPDOC) --config=.phpdoc.xml
 
 
 
@@ -240,7 +245,6 @@ phpdoc:
 behat:
 	@$(call HELPTEXT,$@)
 	[ ! -d features ] || $(BEHAT)
-
 
 
 # ------------------------------------------------------------------------
@@ -265,13 +269,12 @@ install-tools-bash:
 
 
 
-
 # target: check-tools-bash   - Check versions of Bash tools.
 .PHONY: check-tools-bash
 check-tools-bash:
 	@$(call HELPTEXT,$@)
-	which $(SHELLCHECK) && $(SHELLCHECK) --version
-	which $(BATS) && $(BATS) --version
+	$(SHELLCHECK) --version
+	$(BATS) --version
 
 
 
@@ -279,7 +282,7 @@ check-tools-bash:
 .PHONY: shellcheck
 shellcheck:
 	@$(call HELPTEXT,$@)
-	[ ! -d src ] || $(SHELLCHECK) --shell=bash src/*.bash
+	[ ! -f src/*.bash ] || $(SHELLCHECK) --shell=bash src/*.bash
 
 
 
@@ -287,7 +290,7 @@ shellcheck:
 .PHONY: bats
 bats:
 	@$(call HELPTEXT,$@)
-	[ ! -d test ] || $(BATS) test/
+	[ ! -d bats ] || $(BATS) bats/
 
 
 
@@ -299,7 +302,8 @@ bats:
 .PHONY: theme
 theme:
 	@$(call HELPTEXT,$@)
-	[ ! -d theme ] || ( cd theme && make build install )
+	[ ! -d theme ] || $(MAKE) --directory=theme build install
+	#[ ! -d theme ] || ( cd theme && make build install )
 
 
 
