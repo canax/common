@@ -1,7 +1,7 @@
 Revision history
 =================================
 
-v1.0.14* (2017-08-11)
+v1.0.14 (2017-09-25)
 ---------------------------------
 
 * Add extra/Makefile for modules, could replace Makefile.anax.
