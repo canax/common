@@ -1,6 +1,12 @@
 Revision history
 =================================
 
+v1.0.17 (2017-09-25)
+---------------------------------
+
+* Enhance extra/Makefile to create cache directory for cimage.
+
+
 v1.0.16 (2017-09-25)
 ---------------------------------
 
