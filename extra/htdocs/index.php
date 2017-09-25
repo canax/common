@@ -20,7 +20,7 @@ $di  = new \Anax\DI\DIFactoryConfig("di.php");
 //$app->setDI($di);
 
 // Leave to router to match incoming request to routes
-$id->get("router")->handle(
-    $id->get("request")->getRoute(),
-    $id->get("request")->getMethod()
+$di->get("router")->handle(
+    $di->get("request")->getRoute(),
+    $di->get("request")->getMethod()
 );
