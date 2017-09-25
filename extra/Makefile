@@ -336,7 +336,7 @@ export GIT_IGNORE_FILES
 cimage-update:
 	@$(call HELPTEXT,$@)
 	composer require mos/cimage
-	install -d htdocs/{img,cimage} cache/cimage
+	install -d htdocs/img htdocs/cimage cache/cimage
 	chmod 777 cache/cimage
 	$(ECHO) "$$GIT_IGNORE_FILES" | bash -c 'cat > cache/cimage/.gitignore'
 	cp vendor/mos/cimage/webroot/img.php htdocs/cimage
