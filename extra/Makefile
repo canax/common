@@ -328,7 +328,7 @@ export CIMAGE_CONFIG
 cimage-update:
 	@$(call HELPTEXT,$@)
 	composer require mos/cimage
-	install -d htdocs/cimage cache/cimage
+	install -d htdocs/{img,cimage} cache/cimage
 	chmod 777 cache/cimage
 	cp vendor/mos/cimage/webroot/img.php htdocs/cimage
 	cp vendor/mos/cimage/webroot/img/car.png htdocs/img/

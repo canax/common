@@ -1,6 +1,12 @@
 Revision history
 =================================
 
+v1.0.15 (2017-09-25)
+---------------------------------
+
+* Fix extra/Makefile to create htdocs/img in target cimage-update.
+
+
 v1.0.14 (2017-09-25)
 ---------------------------------
 
