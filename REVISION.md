@@ -4,7 +4,7 @@ Revision history
 v1.0.20* (2017-09-26)
 ---------------------------------
 
-* Change how di reads its configuration in htdocs/index.php.
+* 
 
 
 v1.0.19 (2017-09-25)
