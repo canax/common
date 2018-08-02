@@ -1,6 +1,14 @@
 Revision history
 =================================
 
+v2.0.0-alpha.1 (2018-08-02)
+---------------------------------
+
+* Prepare to make this repo obsolete for new release of Anax Lite v1.0.
+* Remove src/functions.php, its moved to anax/commons.
+
+
+
 v1.0.20 (2017-10-19)
 ---------------------------------
 
